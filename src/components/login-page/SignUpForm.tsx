@@ -44,7 +44,7 @@ export default function SignUpForm() {
         },
         validationSchema: Yup.object({
             name: Yup.string().required("Required"),
-            email: Yup.string().required("Required"),
+            email: Yup.string().email("invalid email").required("Required"),
             password: Yup.string().required("Required"),
             imageUrl: Yup.string()
         }),

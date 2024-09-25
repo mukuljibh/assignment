@@ -1,9 +1,11 @@
+import { memo } from "react"
+
 type cardProps = {
     name: string
     price: number
     imageUrl: string
 }
-export default function Card({ name, price, imageUrl }: cardProps) {
+function Card({ name, price, imageUrl }: cardProps) {
     return (
         <div className=" w-60 space-y-4">
             <div>
@@ -17,3 +19,4 @@ export default function Card({ name, price, imageUrl }: cardProps) {
         </div>
     )
 }
+export default memo(Card)

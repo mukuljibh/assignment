@@ -12,7 +12,7 @@ function Navbar() {
                 navigate('/')
             })
             .catch(() => {
-                alert("unable to logout as token got expired verify token middle is used in this route but still redirecting to login")
+                alert("unable to logout as token got expired verify token middleware is used in this route but still redirecting to login")
                 navigate('/')
             })
     }

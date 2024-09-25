@@ -48,9 +48,10 @@ export default function EditProfilePage() {
             name: user.name,
             email: user.email,
         },
+        //we can do any validation as we want using yup and formil easily
         validationSchema: Yup.object({
             name: Yup.string().required("Required"),
-            email: Yup.string().required("Required"),
+            email: Yup.string().required("Required")
         }),
         onSubmit: async (values) => {
 
@@ -80,7 +81,9 @@ export default function EditProfilePage() {
             <h1 className="text-3xl text-center">Hi {user.name}</h1>
             <form onSubmit={formik.handleSubmit} className={` ${transitionClass} flex justify-center `}>
                 <div className=" space-y-2 ">
+
                     <Avatar user={user} handleUpload={handleUpload} />
+                    <h1 className="text-xs font-medium text-red-700">Please note after completing the upload  it make <br />a patch request to the server autmatically </h1>
                     {inputBox.map((input) => {
                         return (
                             <div key={input.id} className="space-y-1">
@@ -99,6 +102,9 @@ export default function EditProfilePage() {
                             </div>
                         )
                     })}
+                    <h1 className="text-xs font-medium text-red-700">By pressing change button it make a put request this time <br />to the server automatically </h1>
+
+
                     <div className="space-y-5">
                         <button type="submit" className="border h-11 w-80 text-white bg-black cursor-pointer">Change</button>
                     </div>
