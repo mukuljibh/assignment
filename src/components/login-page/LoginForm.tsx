@@ -56,7 +56,7 @@ export default function LoginForm() {
                         <div key={input.id}>
                             <h1>{input.title}</h1>
                             <input
-                                className="border h-11 w-80 outline-none"
+                                className="border h-11 w-80 outline-none pl-4"
                                 id={input.id}
                                 name={input.id}
                                 autoComplete="on"

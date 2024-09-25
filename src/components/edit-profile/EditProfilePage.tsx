@@ -67,6 +67,9 @@ export default function EditProfilePage() {
                 })
         }
     })
+    if (!user.email) {
+        return <h1> not allowed go back to the login</h1>
+    }
     return (
         <div className="my-10 space-y-5">
             <button
@@ -74,16 +77,16 @@ export default function EditProfilePage() {
                 onClick={() => navigate('/homepage')}
             >Go back
             </button>
-            <h1 className="text-3xl text-center">hi {user.name}</h1>
+            <h1 className="text-3xl text-center">Hi {user.name}</h1>
             <form onSubmit={formik.handleSubmit} className={` ${transitionClass} flex justify-center `}>
-                <div className=" space-y-2 border-2 border-black">
+                <div className=" space-y-2 ">
                     <Avatar user={user} handleUpload={handleUpload} />
                     {inputBox.map((input) => {
                         return (
                             <div key={input.id} className="space-y-1">
                                 <h1>{input.title}</h1>
                                 <input
-                                    className="border h-11 w-80 outline-none"
+                                    className="border h-11 w-80 outline-none pl-4"
                                     id={input.id}
                                     name={input.id}
                                     autoComplete="on"
@@ -100,8 +103,8 @@ export default function EditProfilePage() {
                         <button type="submit" className="border h-11 w-80 text-white bg-black cursor-pointer">Change</button>
                     </div>
 
-                </div>
-            </form>
-        </div>
+                </div >
+            </form >
+        </div >
     )
 }

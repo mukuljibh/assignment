@@ -15,6 +15,9 @@ export async function registercontroller(req, res) {
         res.status(201).json({ user });
     }
     catch (error) {
+        //this logic  help to prevent registering of user with same email id multiple times
+        //this error code is generate because i marked email as unique  during the creation of user model
+        //conflict error send to client if client place a registeration request 
         if (error.code === 11000 && error.keyValue) {
             const duplicateFields = Object.keys(error.keyValue)[0];
             return res.status(409)
